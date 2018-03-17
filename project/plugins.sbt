@@ -1,1 +1,3 @@
-addSbtPlugin("ch.epfl.lamp" % "sbt-dotty" % "0.1.7")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.5.1")
+
+addSbtPlugin("com.codacy" % "sbt-codacy-coverage" % "1.3.12")

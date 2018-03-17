@@ -1,3 +1,5 @@
+package com.github.kelebra.s99
+
 object Main {
 
   def main(args: Array[String]): Unit = {
