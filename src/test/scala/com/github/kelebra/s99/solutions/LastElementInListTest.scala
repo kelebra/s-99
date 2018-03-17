@@ -1,11 +1,10 @@
 package com.github.kelebra.s99.solutions
 
+import com.github.kelebra.s99.solutions.LastElementInList._
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, WordSpec}
 
 class LastElementInListTest extends WordSpec with PropertyChecks with Matchers {
-
-  import LastElementInList._
 
   "last method implementation" should {
     "be equivalent to scala's .last for non empty lists" in {
