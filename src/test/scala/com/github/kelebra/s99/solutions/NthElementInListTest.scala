@@ -1,11 +1,10 @@
 package com.github.kelebra.s99.solutions
 
-import com.github.kelebra.s99.solutions.NthElementInList._
 import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, WordSpec}
 
-class NthElementInListTest extends WordSpec with PropertyChecks with Matchers {
+class NthElementInListTest extends WordSpec with PropertyChecks with Matchers with NthElementInList {
   private val nonEmptyWithIndex: Gen[(List[Int], Int)] =
     Gen.sized { size ⇒
       for {

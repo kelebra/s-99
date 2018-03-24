@@ -1,10 +1,9 @@
 package com.github.kelebra.s99.solutions
 
-import com.github.kelebra.s99.solutions.PenultimateElementInList.penultimate
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, WordSpec}
 
-class PenultimateElementInListTest extends WordSpec with PropertyChecks with Matchers {
+class PenultimateElementInListTest extends WordSpec with PropertyChecks with Matchers with PenultimateElementInList {
 
   "penultimate method implementation" should {
     "work like like init.last in scala" in {
