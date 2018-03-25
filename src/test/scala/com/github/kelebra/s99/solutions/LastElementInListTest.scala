@@ -4,7 +4,6 @@ import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, WordSpec}
 
 class LastElementInListTest extends WordSpec with PropertyChecks with Matchers with LastElementInList {
-
   "last method implementation" should {
     "be equivalent .last for non empty lists" in {
       forAll { (list: List[Int]) ⇒
