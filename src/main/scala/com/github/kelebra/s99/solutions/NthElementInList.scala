@@ -1,9 +1,11 @@
 package com.github.kelebra.s99.solutions
 
+import com.github.kelebra.s99.description.Solution
 import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
+@Solution(number = 3, input = "List(1, 1, 2, 3, 5, 8), 2")
 trait NthElementInList extends problems.NthElementInList {
 
   @tailrec

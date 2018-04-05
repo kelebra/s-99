@@ -1,9 +1,11 @@
 package com.github.kelebra.s99.solutions
 
+import com.github.kelebra.s99.description.Solution
 import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
+@Solution(number = 2, input = "List(1, 1, 2, 3, 5, 8)")
 trait PenultimateElementInList extends problems.PenultimateElementInList {
 
   @tailrec

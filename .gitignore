@@ -1,4 +1,6 @@
 .idea
+target/
 project/*
 !project/build.properties
 !project/plugins.sbt
+src/main/tut

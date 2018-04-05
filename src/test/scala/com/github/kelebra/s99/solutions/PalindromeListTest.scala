@@ -3,7 +3,7 @@ package com.github.kelebra.s99.solutions
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, WordSpec}
 
-class PalindromeListTest extends WordSpec with PropertyChecks with Matchers with PalindromeList with ReverseList {
+class PalindromeListTest extends WordSpec with PropertyChecks with Matchers with PalindromeList {
   "is palindrome implementation" should {
     "work as list == list.reverse in scala" in {
       forAll { (list: List[Int]) ⇒
