@@ -3,4 +3,5 @@ target/
 project/*
 !project/build.properties
 !project/plugins.sbt
+!project/*.scala
 src/main/tut
