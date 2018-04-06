@@ -22,7 +22,7 @@ object AnnotationProcessor {
       .map(f ⇒ Files.readAllLines(f.toPath).asScala.mkString("\n"))
       .flatMap(content ⇒ solutionPattern.findAllIn(content).matchData.toList.headOption)
       .flatMap { `match` ⇒
-        val application = s"""( new ${`match`.group(3)}(){} ).${`match`.group(4)}(${`match`.group(2)})"""
+        val application = s"""${`match`.group(3)}(${`match`.group(2)})"""
         Option((`match`.group(1).toInt, application))
       }
       .toList
@@ -40,7 +40,7 @@ object AnnotationProcessor {
       .mkString
   }
 
-  private val solutionPattern = """@Solution\(number = ([0-9]+), input = \"(.*)\"\)\ntrait ([a-zA-Z]+)[\S\s]+def ([a-zA-Z]+)[\[|\)]""".r
+  private val solutionPattern = """@Solution\(number = ([0-9]+), input = \"(.*)\"\)\nobject ([a-zA-Z]+)""".r
 
   private val readme =
     """

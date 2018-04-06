@@ -5,7 +5,6 @@ import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-@Solution(number = 5, input = "List(1, 1, 2, 3, 5, 8)")
 trait ReverseList extends problems.ReverseList {
 
   final def reverse[T](list: List[T]): List[T] = {
@@ -17,4 +16,10 @@ trait ReverseList extends problems.ReverseList {
 
     internal(list)
   }
+}
+
+@Solution(number = 5, input = "List(1, 1, 2, 3, 5, 8)")
+object ReverseList extends ReverseList {
+
+  def apply[T](list: List[T]): List[T] = reverse(list)
 }

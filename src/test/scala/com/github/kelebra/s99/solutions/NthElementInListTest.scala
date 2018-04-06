@@ -4,7 +4,7 @@ import org.scalacheck.Gen
 import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, WordSpec}
 
-class NthElementInListTest extends WordSpec with PropertyChecks with Matchers with NthElementInList {
+class NthElementInListTest extends WordSpec with PropertyChecks with Matchers {
   private val nonEmptyWithIndex: Gen[(List[Int], Int)] =
     Gen.sized { size ⇒
       for {
@@ -16,13 +16,13 @@ class NthElementInListTest extends WordSpec with PropertyChecks with Matchers wi
     "be equivalent to .apply(n) for non-empty lists" in {
       forAll(nonEmptyWithIndex) {
         case (list: List[Int], k: Int) ⇒
-          nth(list, k).shouldBe(list(k))
+          NthElementInList(list, k).shouldBe(list(k))
       }
     }
     "throw when list is empty for any n" in {
       forAll { (n: Int) ⇒
         intercept[NoSuchElementException] {
-          nth(Nil, n)
+          NthElementInList(Nil, n)
         }
       }
     }

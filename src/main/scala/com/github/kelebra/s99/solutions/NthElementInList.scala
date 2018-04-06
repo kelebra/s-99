@@ -5,7 +5,6 @@ import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-@Solution(number = 3, input = "List(1, 1, 2, 3, 5, 8), 2")
 trait NthElementInList extends problems.NthElementInList {
 
   @tailrec
@@ -14,4 +13,10 @@ trait NthElementInList extends problems.NthElementInList {
     case (_ :: tail, _) ⇒ nth(tail, n - 1)
     case (Nil, _)       ⇒ throw new NoSuchElementException
   }
+}
+
+@Solution(number = 3, input = "List(1, 1, 2, 3, 5, 8), 2")
+object NthElementInList extends NthElementInList {
+
+  def apply[T](list: List[T], n: Int): T = nth(list, n)
 }

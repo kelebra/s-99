@@ -5,7 +5,6 @@ import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-@Solution(number = 2, input = "List(1, 1, 2, 3, 5, 8)")
 trait PenultimateElementInList extends problems.PenultimateElementInList {
 
   @tailrec
@@ -14,4 +13,10 @@ trait PenultimateElementInList extends problems.PenultimateElementInList {
     case _ :: tail        ⇒ penultimate(tail)
     case _                ⇒ throw new NoSuchElementException()
   }
+}
+
+@Solution(number = 2, input = "List(1, 1, 2, 3, 5, 8)")
+object PenultimateElementInList extends PenultimateElementInList {
+
+  def apply[T](list: List[T]): T = penultimate(list)
 }

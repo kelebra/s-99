@@ -5,7 +5,6 @@ import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-@Solution(number = 4, input = "List(1, 1, 2, 3, 5, 8)")
 trait LengthOfList extends problems.LengthOfList {
 
   final def length[T](list: List[T]): Int = {
@@ -17,4 +16,10 @@ trait LengthOfList extends problems.LengthOfList {
 
     internal(list)
   }
+}
+
+@Solution(number = 4, input = "List(1, 1, 2, 3, 5, 8)")
+object LengthOfList extends LengthOfList {
+
+  def apply[T](list: List[T]): Int = length(list)
 }
