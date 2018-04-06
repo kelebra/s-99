@@ -16,7 +16,7 @@
 
     
 
-## Problem #1:
+## #1: last element in list
 
 ```scala
 scala> import com.github.kelebra.s99.solutions._
@@ -28,7 +28,7 @@ res0: Int = 8
 
            
 
-## Problem #2:
+## #2: penultimate element in list
 
 ```scala
 scala> import com.github.kelebra.s99.solutions._
@@ -40,7 +40,7 @@ res1: Int = 5
 
            
 
-## Problem #3:
+## #3: nth element in list
 
 ```scala
 scala> import com.github.kelebra.s99.solutions._
@@ -52,7 +52,7 @@ res2: Int = 2
 
            
 
-## Problem #4:
+## #4: length of list
 
 ```scala
 scala> import com.github.kelebra.s99.solutions._
@@ -64,7 +64,7 @@ res3: Int = 6
 
            
 
-## Problem #5:
+## #5: reverse list
 
 ```scala
 scala> import com.github.kelebra.s99.solutions._
@@ -76,7 +76,7 @@ res4: List[Int] = List(8, 5, 3, 2, 1, 1)
 
            
 
-## Problem #6:
+## #6: palindrome list
 
 ```scala
 scala> import com.github.kelebra.s99.solutions._
@@ -88,7 +88,7 @@ res5: Boolean = true
 
            
 
-## Problem #7:
+## #7: flatten list
 
 ```scala
 scala> import com.github.kelebra.s99.solutions._

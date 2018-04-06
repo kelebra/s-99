@@ -3,6 +3,7 @@ import java.nio.file.Files
 
 import sbt.file
 
+import scala.annotation.tailrec
 import scala.collection.JavaConverters._
 
 object AnnotationProcessor {
@@ -22,15 +23,16 @@ object AnnotationProcessor {
       .map(f ⇒ Files.readAllLines(f.toPath).asScala.mkString("\n"))
       .flatMap(content ⇒ solutionPattern.findAllIn(content).matchData.toList.headOption)
       .flatMap { `match` ⇒
-        val application = s"""${`match`.group(3)}(${`match`.group(2)})"""
-        Option((`match`.group(1).toInt, application))
+        val caller = `match`.group(3)
+        val application = s"""$caller(${`match`.group(2)})"""
+        Option((`match`.group(1).toInt, unCamel(caller), application))
       }
       .toList
       .sortBy(_._1)
       .map {
-        case (number, application) ⇒
+        case (number, problem, application) ⇒
           s"""
-             |## Problem #$number:
+             |## #$number: $problem
              |```tut
              |import com.github.kelebra.s99.solutions._
              |
@@ -39,6 +41,13 @@ object AnnotationProcessor {
            """.stripMargin
       }
       .mkString
+  }
+
+  @tailrec
+  private def unCamel(input: Seq[Char], acc: String = ""): String = input match {
+    case Seq(upper, tail@_*) if upper.isUpper ⇒ unCamel(tail, acc + s" ${upper.toLower}")
+    case Seq(lower, tail@_*) if lower.isLower ⇒ unCamel(tail, acc + lower)
+    case _                                    ⇒ acc.trim
   }
 
   private val solutionPattern = """@Solution\(number = ([0-9]+), input = \"(.*)\"\)\nobject ([a-zA-Z]+)""".r
