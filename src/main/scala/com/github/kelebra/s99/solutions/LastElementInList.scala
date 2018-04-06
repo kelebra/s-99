@@ -15,7 +15,7 @@ trait LastElementInList extends problems.LastElementInList {
   }
 }
 
-@Solution(number = 1, input = "List(1, 1, 2, 3, 5, 8)")
+@Solution(number = 1, input = "1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil")
 object LastElementInList extends LastElementInList {
 
   def apply[T](list: List[T]): T = last(list)

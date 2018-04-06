@@ -22,7 +22,7 @@
 scala> import com.github.kelebra.s99.solutions._
 import com.github.kelebra.s99.solutions._
 
-scala> LastElementInList(List(1, 1, 2, 3, 5, 8))
+scala> LastElementInList(1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil)
 res0: Int = 8
 ```
 
@@ -34,7 +34,7 @@ res0: Int = 8
 scala> import com.github.kelebra.s99.solutions._
 import com.github.kelebra.s99.solutions._
 
-scala> PenultimateElementInList(List(1, 1, 2, 3, 5, 8))
+scala> PenultimateElementInList(1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil)
 res1: Int = 5
 ```
 
@@ -46,7 +46,7 @@ res1: Int = 5
 scala> import com.github.kelebra.s99.solutions._
 import com.github.kelebra.s99.solutions._
 
-scala> NthElementInList(List(1, 1, 2, 3, 5, 8), 2)
+scala> NthElementInList(1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil, 2)
 res2: Int = 2
 ```
 
@@ -58,7 +58,7 @@ res2: Int = 2
 scala> import com.github.kelebra.s99.solutions._
 import com.github.kelebra.s99.solutions._
 
-scala> LengthOfList(List(1, 1, 2, 3, 5, 8))
+scala> LengthOfList(1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil)
 res3: Int = 6
 ```
 
@@ -70,7 +70,7 @@ res3: Int = 6
 scala> import com.github.kelebra.s99.solutions._
 import com.github.kelebra.s99.solutions._
 
-scala> ReverseList(List(1, 1, 2, 3, 5, 8))
+scala> ReverseList(1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil)
 res4: List[Int] = List(8, 5, 3, 2, 1, 1)
 ```
 
@@ -82,7 +82,7 @@ res4: List[Int] = List(8, 5, 3, 2, 1, 1)
 scala> import com.github.kelebra.s99.solutions._
 import com.github.kelebra.s99.solutions._
 
-scala> PalindromeList(List(1, 2, 3, 2, 1))
+scala> PalindromeList(1 :: 2 :: 3 :: 2 :: 1 :: Nil)
 res5: Boolean = true
 ```
 
@@ -94,7 +94,7 @@ res5: Boolean = true
 scala> import com.github.kelebra.s99.solutions._
 import com.github.kelebra.s99.solutions._
 
-scala> FlattenList(List(List(1, 1), 2, List(3, List(5, 8))))
+scala> FlattenList(List(1, 1) :: 2 :: List(3, List(5, 8)) :: Nil)
 res6: List[Any] = List(1, 1, 2, 3, 5, 8)
 ```
 

@@ -18,7 +18,7 @@ trait ReverseList extends problems.ReverseList {
   }
 }
 
-@Solution(number = 5, input = "List(1, 1, 2, 3, 5, 8)")
+@Solution(number = 5, input = "1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil")
 object ReverseList extends ReverseList {
 
   def apply[T](list: List[T]): List[T] = reverse(list)

@@ -12,7 +12,7 @@ trait FlattenList extends problems.FlattenList with ReverseList {
     }
 }
 
-@Solution(number = 7, input = "List(List(1, 1), 2, List(3, List(5, 8)))")
+@Solution(number = 7, input = "List(1, 1) :: 2 :: List(3, List(5, 8)) :: Nil")
 object FlattenList extends FlattenList {
 
   def apply(list: List[Any]): List[Any] = flatten(list)

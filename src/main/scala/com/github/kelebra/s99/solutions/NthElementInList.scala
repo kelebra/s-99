@@ -15,7 +15,7 @@ trait NthElementInList extends problems.NthElementInList {
   }
 }
 
-@Solution(number = 3, input = "List(1, 1, 2, 3, 5, 8), 2")
+@Solution(number = 3, input = "1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil, 2")
 object NthElementInList extends NthElementInList {
 
   def apply[T](list: List[T], n: Int): T = nth(list, n)

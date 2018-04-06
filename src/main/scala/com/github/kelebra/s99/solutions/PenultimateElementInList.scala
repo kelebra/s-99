@@ -15,7 +15,7 @@ trait PenultimateElementInList extends problems.PenultimateElementInList {
   }
 }
 
-@Solution(number = 2, input = "List(1, 1, 2, 3, 5, 8)")
+@Solution(number = 2, input = "1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil")
 object PenultimateElementInList extends PenultimateElementInList {
 
   def apply[T](list: List[T]): T = penultimate(list)

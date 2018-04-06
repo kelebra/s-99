@@ -33,6 +33,7 @@ object AnnotationProcessor {
              |## Problem #$number:
              |```tut
              |import com.github.kelebra.s99.solutions._
+             |
              |$application
              |```
            """.stripMargin

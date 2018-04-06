@@ -18,7 +18,7 @@ trait LengthOfList extends problems.LengthOfList {
   }
 }
 
-@Solution(number = 4, input = "List(1, 1, 2, 3, 5, 8)")
+@Solution(number = 4, input = "1 :: 1 :: 2 :: 3 :: 5 :: 8 :: Nil")
 object LengthOfList extends LengthOfList {
 
   def apply[T](list: List[T]): Int = length(list)
