@@ -13,12 +13,12 @@ object AnnotationProcessor {
 
     Files.write(
       target.toPath,
-      (readme + gatherProblemStatementsAndSamples(sources)).split("\n").toList.asJava
+      createReadMe(sources).getBytes()
     )
   }
 
-  private def gatherProblemStatementsAndSamples(sources: Set[File]): String = {
-    sources
+  private def createReadMe(sources: Set[File]): String = {
+    val solutions = sources
       .map(f ⇒ Files.readAllLines(f.toPath).asScala.mkString("\n"))
       .flatMap(content ⇒ solutionPattern.findAllIn(content).matchData.toList.headOption)
       .flatMap { `match` ⇒
@@ -26,18 +26,21 @@ object AnnotationProcessor {
         val application = s"""$caller(${`match`.group(2)})"""
         Option((`match`.group(1).toInt, unCamel(caller), application))
       }
-      .toList
-      .sortBy(_._1)
-      .map {
-        case (number, problem, application) ⇒
-          s"""
-             |## #$number: $problem
-             |```tut
-             |$application
-             |```
+    readme(solutions.size * 100 / 99) +
+      "\n" +
+      solutions
+        .toList
+        .sortBy(_._1)
+        .map {
+          case (number, problem, application) ⇒
+            s"""
+               |## #$number: $problem
+               |```tut
+               |$application
+               |```
            """.stripMargin
-      }
-      .mkString
+        }
+        .mkString
   }
 
   private def unCamel(input: Seq[Char]): String =
@@ -48,8 +51,9 @@ object AnnotationProcessor {
 
   private val solutionPattern = """@Solution\(number = ([0-9]+), input = \"(.*)\"\)\nobject ([a-zA-Z]+)""".r
 
-  private val readme =
+  private def readme(percent: Int) =
     "## Project status:\n" +
+      s"""![Progress](http://progressed.io/bar/$percent)""" +
       """[![Build Status](https://travis-ci.org/kelebra/s-99.svg?branch=master)](https://travis-ci.org/kelebra/s-99)""" +
       """[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kelebra/s-99&amp;utm_campaign=Badge_Grade)""" +
       """[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&utm_medium=referral&utm_content=kelebra/s-99&utm_campaign=Badge_Coverage)""" +
