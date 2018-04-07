@@ -99,3 +99,15 @@ res6: List[Any] = List(1, 1, 2, 3, 5, 8)
 ```
 
            
+
+## #8: eliminate consecutive duplicates
+
+```scala
+scala> import com.github.kelebra.s99.solutions._
+import com.github.kelebra.s99.solutions._
+
+scala> EliminateConsecutiveDuplicates(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))
+res7: List[Symbol] = List('a, 'b, 'c, 'a, 'd, 'e)
+```
+
+           
