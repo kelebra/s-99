@@ -3,7 +3,6 @@ import java.nio.file.Files
 
 import sbt.file
 
-import scala.annotation.tailrec
 import scala.collection.JavaConverters._
 
 object AnnotationProcessor {
@@ -34,8 +33,6 @@ object AnnotationProcessor {
           s"""
              |## #$number: $problem
              |```tut
-             |import com.github.kelebra.s99.solutions._
-             |
              |$application
              |```
            """.stripMargin
@@ -43,23 +40,26 @@ object AnnotationProcessor {
       .mkString
   }
 
-  @tailrec
-  private def unCamel(input: Seq[Char], acc: String = ""): String = input match {
-    case Seq(upper, tail@_*) if upper.isUpper ⇒ unCamel(tail, acc + s" ${upper.toLower}")
-    case Seq(lower, tail@_*) if lower.isLower ⇒ unCamel(tail, acc + lower)
-    case _                                    ⇒ acc.trim
-  }
+  private def unCamel(input: Seq[Char]): String =
+    input.map {
+      case upper if upper.isUpper ⇒ s" ${upper.toLower}"
+      case lower                  ⇒ lower
+    }.mkString.trim
 
   private val solutionPattern = """@Solution\(number = ([0-9]+), input = \"(.*)\"\)\nobject ([a-zA-Z]+)""".r
 
   private val readme =
     """
       |## Project status:
-      |[![Build Status](https://travis-ci.org/kelebra/s-99.svg?branch=master)](https://travis-ci.org/kelebra/s-99)
-      |[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kelebra/s-99&amp;utm_campaign=Badge_Grade)
-      |[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&utm_medium=referral&utm_content=kelebra/s-99&utm_campaign=Badge_Coverage)
-      |
-      |# Solutions to [Scala 99](http://aperiodic.net/phil/scala/s-99/) Problems:
-      |
-    """.stripMargin
+      |[![Build Status](https://travis-ci.org/kelebra/s-99.svg?branch=master)](https://travis-ci.org/kelebra/s-99)""" +
+      """[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kelebra/s-99&amp;utm_campaign=Badge_Grade)""" +
+      """[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&utm_medium=referral&utm_content=kelebra/s-99&utm_campaign=Badge_Coverage)"""
+        .stripMargin +
+      """
+        |# Solutions to [Scala 99](http://aperiodic.net/phil/scala/s-99/) Problems:
+        |
+        |```tut
+        |import com.github.kelebra.s99.solutions._
+        |```
+      """.stripMargin
 }
