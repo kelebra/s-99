@@ -1,9 +1,8 @@
 package com.github.kelebra.s99.solutions
 
 import com.github.kelebra.s99.description.Solution
-import com.github.kelebra.s99.problems
 
-trait PalindromeList extends problems.PalindromeList with ReverseList {
+trait PalindromeList extends ReverseList {
 
   final def isPalindrome[T](list: List[T]): Boolean = list == reverse(list)
 }

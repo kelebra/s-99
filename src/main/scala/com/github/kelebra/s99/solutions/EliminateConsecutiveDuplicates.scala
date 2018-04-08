@@ -1,22 +1,21 @@
 package com.github.kelebra.s99.solutions
 
 import com.github.kelebra.s99.description.Solution
-import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-trait EliminateConsecutiveDuplicates extends problems.EliminateConsecutiveDuplicates with ReverseList {
+trait EliminateConsecutiveDuplicates {
 
-  override def compress[T](list: List[T]): List[T] = {
+  def compress[T](list: List[T]): List[T] = {
     @tailrec def internal(rest: List[T], duplicate: T, acc: List[T]): List[T] =
       rest match {
         case unique :: tail if unique != duplicate ⇒ internal(tail, unique, unique :: acc)
         case repeat :: tail if repeat == duplicate ⇒ internal(tail, repeat, acc)
-        case _                                     ⇒ acc
+        case _                                     ⇒ acc.reverse
       }
 
     list match {
-      case head :: tail ⇒ reverse(internal(tail, head, List(head)))
+      case head :: tail ⇒ internal(tail, head, List(head))
       case _            ⇒ list
     }
   }

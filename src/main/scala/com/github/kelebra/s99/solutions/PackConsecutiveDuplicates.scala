@@ -1,13 +1,12 @@
 package com.github.kelebra.s99.solutions
 
 import com.github.kelebra.s99.description.Solution
-import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-trait PackConsecutiveDuplicates extends problems.PackConsecutiveDuplicates {
+trait PackConsecutiveDuplicates {
 
-  override def pack[T](list: List[T]): List[List[T]] = {
+  def pack[T](list: List[T]): List[List[T]] = {
     @tailrec def internal(rest: List[T],
                           group: List[T] = Nil,
                           acc  : List[List[T]] = Nil): List[List[T]] =

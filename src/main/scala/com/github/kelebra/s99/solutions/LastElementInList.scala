@@ -1,11 +1,10 @@
 package com.github.kelebra.s99.solutions
 
 import com.github.kelebra.s99.description.Solution
-import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-trait LastElementInList extends problems.LastElementInList {
+trait LastElementInList {
 
   @tailrec
   final def last[T](list: List[T]): T = list match {

@@ -1,11 +1,10 @@
 package com.github.kelebra.s99.solutions
 
 import com.github.kelebra.s99.description.Solution
-import com.github.kelebra.s99.problems
 
 import scala.annotation.tailrec
 
-trait NthElementInList extends problems.NthElementInList {
+trait NthElementInList {
 
   @tailrec
   final def nth[T](list: List[T], n: Int): T = (list, n) match {
