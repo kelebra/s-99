@@ -11,13 +11,15 @@ trait PackConsecutiveDuplicates {
                           group: List[T] = Nil,
                           acc  : List[List[T]] = Nil): List[List[T]] =
       rest match {
-        case Nil if group.isEmpty                                             ⇒ Nil
-        case in :: tail if group.isEmpty || group.headOption.contains(in)     ⇒ internal(tail, in :: group, acc)
-        case out :: tail if group.nonEmpty && !group.headOption.contains(out) ⇒ internal(tail, out :: Nil, group :: acc)
-        case _                                                                ⇒ (group :: acc).reverse
+        case in :: tail if group.headOption.contains(in)    ⇒ internal(tail, in :: group, acc)
+        case out :: tail if !group.headOption.contains(out) ⇒ internal(tail, out :: Nil, group :: acc)
+        case _                                              ⇒ (group :: acc).reverse
       }
 
-    internal(list)
+    list match {
+      case head :: tail ⇒ internal(tail, head :: Nil)
+      case _            ⇒ Nil
+    }
   }
 }
 
