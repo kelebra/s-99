@@ -34,7 +34,7 @@ object AnnotationProcessor {
         .map {
           case (number, problem, application) ⇒
             s"""
-               |## #$number: $problem
+               |$number. ${problem.capitalize}
                |```tut
                |$application
                |```
