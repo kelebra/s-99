@@ -52,7 +52,7 @@ object AnnotationProcessor {
   private val solutionPattern = """@Solution\(number = ([0-9]+), input = \"(.*)\"\)\nobject ([a-zA-Z]+)""".r
 
   private def readme(percent: Int) =
-    "## Project status:\n" +
+    "# Project status\n" +
       s"""![Progress](http://progressed.io/bar/$percent?title=done) """ +
       """[![Build Status](https://travis-ci.org/kelebra/s-99.svg?branch=master)](https://travis-ci.org/kelebra/s-99) """ +
       """[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kelebra/s-99&amp;utm_campaign=Badge_Grade) """ +
