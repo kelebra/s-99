@@ -12,9 +12,9 @@ trait SplitListInTwoParts {
                           first: List[T] = Nil,
                           iteration: Int = 1): (List[T], List[T]) =
       (remaining, iteration) match {
-        case (Nil, _)                           ⇒ (first.reverse, Nil)
-        case (head :: tail, last) if last == at ⇒ (head :: first reverse, tail)
-        case (head :: tail, _)                  ⇒ internal(tail, head :: first, iteration + 1)
+        case (Nil, _)             ⇒ (first.reverse, Nil)
+        case (head :: tail, `at`) ⇒ (head :: first reverse, tail)
+        case (head :: tail, _)    ⇒ internal(tail, head :: first, iteration + 1)
       }
 
     if (at < 1 || list.isEmpty) (Nil, list) else internal(list)
