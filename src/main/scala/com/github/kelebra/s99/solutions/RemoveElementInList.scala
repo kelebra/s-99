@@ -11,7 +11,7 @@ trait RemoveElementInList {
                           acc      : List[T] = Nil,
                           i        : Int = position): List[T] =
       (remaining, i) match {
-        case (_ :: tail, 1)    ⇒ acc.reverse ::: tail
+        case (_ :: tail, 0)    ⇒ acc.reverse ::: tail
         case (head :: tail, _) ⇒ internal(tail, head :: acc, i - 1)
         case _                 ⇒ acc.reverse
       }
