@@ -1,5 +1,5 @@
 # Project status
-![Progress](http://progressed.io/bar/21?title=done) [![Build Status](https://travis-ci.org/kelebra/s-99.svg?branch=master)](https://travis-ci.org/kelebra/s-99) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kelebra/s-99&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&utm_medium=referral&utm_content=kelebra/s-99&utm_campaign=Badge_Coverage)
+![Progress](http://progressed.io/bar/22?title=done) [![Build Status](https://travis-ci.org/kelebra/s-99.svg?branch=master)](https://travis-ci.org/kelebra/s-99) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=kelebra/s-99&amp;utm_campaign=Badge_Grade) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/1d6879f769b14cb6be581d36fe5f3897)](https://www.codacy.com/app/kelebra20/s-99?utm_source=github.com&utm_medium=referral&utm_content=kelebra/s-99&utm_campaign=Badge_Coverage)
 # Solutions to [Scala 99](http://aperiodic.net/phil/scala/s-99/) Problems
 
 ```scala
@@ -132,5 +132,11 @@ res19: List[Symbol] = List('a, 'c, 'd)
 ```scala
 scala> InsertElementInList('new, 1, List('a, 'b, 'c, 'd))
 res20: List[Symbol] = List('a, 'new, 'b, 'c, 'd)
+```
+           
+#### 22. Range
+```scala
+scala> Range(4, 9)
+res21: List[Int] = List(4, 5, 6, 7, 8, 9)
 ```
            
