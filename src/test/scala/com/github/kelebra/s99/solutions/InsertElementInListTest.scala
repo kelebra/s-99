@@ -16,13 +16,12 @@ class InsertElementInListTest extends WordSpec with PropertyChecks with Matchers
         InsertElementInList(element, middle, list) shouldBe expected
       }
     }
-    "return one element list" in {
+    "return Nil" in {
       val element = -250
-      InsertElementInList(element, 1, Nil) shouldBe element :: Nil
+      InsertElementInList(element, 1, Nil) shouldBe Nil
     }
     "return same list" in {
-      val element = 1
-      InsertElementInList(element, -1, Nil) shouldBe element :: Nil
+      InsertElementInList(1, -1, Nil) shouldBe Nil
     }
     "insert to head of list" in {
       val element = 1
