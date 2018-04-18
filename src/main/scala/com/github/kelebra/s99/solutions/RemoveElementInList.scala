@@ -16,7 +16,7 @@ trait RemoveElementInList {
         case _                 ⇒ acc.reverse
       }
 
-    if (position < 1 || list.isEmpty) list else internal(list)
+    if (position < 0 || list.isEmpty) list else internal(list)
   }
 }
 
