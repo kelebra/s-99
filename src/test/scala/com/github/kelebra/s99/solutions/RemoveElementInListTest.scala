@@ -10,12 +10,18 @@ class RemoveElementInListTest extends WordSpec with PropertyChecks with Matchers
       forAll { (list: List[Int]) ⇒
         val middle = list.length / 2
         val expected = list.take(middle) ::: list.takeRight(list.length - middle - 1)
-        RemoveElementInList(middle, list) shouldBe expected
+        RemoveElementInList(middle, list)._1 shouldBe expected
       }
     }
     "sanely work for exceeding position" in {
       val nonEmpty = List(1, 2, 3)
-      RemoveElementInList(100, nonEmpty) shouldBe nonEmpty
+      RemoveElementInList(100, nonEmpty) shouldBe nonEmpty → None
+    }
+    "return deleted element if possible" in {
+      val nonEmpty = List(1, 2, 3)
+      RemoveElementInList(100, Nil) shouldBe Nil → None
+      RemoveElementInList(-5, Nil) shouldBe Nil → None
+      RemoveElementInList(2, nonEmpty) shouldBe List(1, 2) → Option(3)
     }
   }
 }
